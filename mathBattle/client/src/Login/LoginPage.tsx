@@ -1,8 +1,6 @@
-import { Box, Button, Grid, Typography } from '@mui/material'
-import { useState } from 'react'
+import { Box, Button, Grid, Typography, TextField } from '@mui/material'
 
 export function LoginPage() {
-  const [count, setCount] = useState(0)
 
   return (
     <Box textAlign='center' sx={{m: 10}}>
@@ -19,10 +17,16 @@ export function LoginPage() {
           </Typography><br/>
         </Grid>
         <Grid item xs={12}>
-          <Button sx={{ alignSelf: "center" }} variant="contained">Login</Button>
+          <TextField id="outlined-basic" label="Username" variant="outlined" />
         </Grid>
         <Grid item xs={12}>
-          <Button sx={{ alignSelf: "center" }} variant="outlined">Register</Button>
+          <TextField id="outlined-basic" label="Passwort" type="password" variant="outlined" />
+        </Grid>
+        <Grid item xs={12}>
+          <Button variant="contained">Login</Button>
+        </Grid>
+        <Grid item xs={12}>
+          <Button variant="outlined">Register</Button>
         </Grid>
       </Grid>
     </Box>

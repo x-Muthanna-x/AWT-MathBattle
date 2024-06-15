@@ -1,25 +1,25 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import StartMenu from './StartMenu.tsx'
-import { ThemeProvider, createTheme } from '@mui/material';
+import { LoginPage } from './Login/LoginPage.tsx'
+import { ThemeProvider } from '@mui/material';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import { theme } from './main-theme.ts';
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#4648ba',
-    },
-    secondary: {
-      main: '#f3bc77',
-    }
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <LoginPage/>,
   },
-  typography: {
-    fontFamily: "Lora, sans-serif",
-    fontSize:16
-  }
-});
+]);
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-    <StartMenu /></ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>,
 )

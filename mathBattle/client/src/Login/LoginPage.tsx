@@ -1,7 +1,7 @@
 import { Box, Button, Grid, Typography } from '@mui/material'
 import { useState } from 'react'
 
-function StartMenu() {
+export function LoginPage() {
   const [count, setCount] = useState(0)
 
   return (
@@ -28,5 +28,3 @@ function StartMenu() {
     </Box>
   )
 }
-
-export default StartMenu

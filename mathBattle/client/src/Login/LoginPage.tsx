@@ -17,10 +17,10 @@ export function LoginPage() {
           </Typography><br/>
         </Grid>
         <Grid item xs={12}>
-          <TextField id="outlined-basic" label="Username" variant="outlined" />
+          <TextField id="username" label="Username" variant="outlined" />
         </Grid>
         <Grid item xs={12}>
-          <TextField id="outlined-basic" label="Passwort" type="password" variant="outlined" />
+          <TextField id="password" label="Password" type="password" variant="outlined" />
         </Grid>
         <Grid item xs={12}>
           <Button variant="contained">Login</Button>

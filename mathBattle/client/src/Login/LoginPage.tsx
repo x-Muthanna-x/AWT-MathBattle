@@ -1,6 +1,12 @@
 import { Box, Button, Grid, Typography, TextField } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 export function LoginPage() {
+
+  const navigate = useNavigate()
+  const handleLogin = () => {
+    navigate('/map')
+  }
 
   return (
     <Box textAlign='center' sx={{m: 10}}>
@@ -23,7 +29,7 @@ export function LoginPage() {
           <TextField id="password" label="Password" type="password" variant="outlined" />
         </Grid>
         <Grid item xs={12}>
-          <Button variant="contained">Login</Button>
+          <Button variant="contained" onClick={ handleLogin }>Login</Button>
         </Grid>
         <Grid item xs={12}>
           <Button variant="outlined">Register</Button>

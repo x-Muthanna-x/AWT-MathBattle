@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import { theme } from './main-theme.ts';
 import { LevelMapPage } from './LevelMap/LevelMapPage.tsx';
+import { NotFound } from './NotFound.tsx';
 
 
 const router = createBrowserRouter([
@@ -18,6 +19,9 @@ const router = createBrowserRouter([
   {
     path: "/map",
     element: <LevelMapPage name='John' levels={[{number: 1, completed: true}, {number: 2, completed: true}, {number: 3, completed: false}]}/>,
+  },{
+    path: "*",
+    element: <NotFound/>,
   },
 ]);
 

@@ -11,7 +11,7 @@ export function LevelCard(props: ILevel) {
             </CardContent>
             <CardActions>
                 <Box display="flex" justifyContent="center" width="100%">
-                    <Button size="small">Start</Button>
+                    <Button size="small" href={"/level/" + props.number}>Start</Button>
                 </Box>
             </CardActions>
         </Card>

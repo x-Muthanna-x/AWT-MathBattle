@@ -6,6 +6,6 @@ export interface IUser {
 
 export interface IOptions {
     gameTimer: boolean,
-    soundVolumen: number,
-    fintSize: number
+    soundVolume: number,
+    fontSize: number
 }

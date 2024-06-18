@@ -4,10 +4,12 @@ import mongoose from "mongoose";
 import {config} from "dotenv";
 import { openConnection } from "./database/open-connection";
 import morgan from 'morgan';
+import helmet from 'helmet';
 
 config();
 
 const app: Express = express();
+app.use(helmet());
 
 app.use(cors());
 app.use(express.json());

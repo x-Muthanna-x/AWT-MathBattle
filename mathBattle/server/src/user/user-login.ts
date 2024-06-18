@@ -4,19 +4,7 @@ import jwt from 'jsonwebtoken';
 import { hashPassword } from "./hashing";
 
 
-
-export async function tryLoginUser(req: Request, res: Response) {
-    try {
-        await loginUser(req,res);
-    } catch (error: any) {
-        console.error(error);
-        res.status(400).json({
-            message: error.message.toString(),
-        });
-    }
-}
-
-async function  loginUser(req: Request, res: Response) {
+export async function  loginUser(req: Request, res: Response) {
     const user = req.body;
     const { username, password } = user;
 

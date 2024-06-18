@@ -2,37 +2,21 @@ import express, { Express, Request, Response } from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import {config} from "dotenv";
+import { openConnection } from "./database/open-connection";
+import morgan from 'morgan';
+
 config();
 
 const app: Express = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 
-const uri: string =
-    process.env.MONGODB_URI || "mongodb://localhost:27017/your-app";
-
-(async () => {
-    try {
-        await mongoose.connect(uri);
-        console.log("Connected to the database");
-    } catch (error) {
-        console.error(error);
-    }
-})();
-
-app.get("/health", (_req: Request, res: Response) => {
-    res.status(200).send("Server is running");
-});
-
-app.get("/test", (req: Request, res: Response) => {
-    console.log("test");
-    res.status(200);
-});
 
 const PORT: string | number = process.env.PORT || 3000;
-
+// openConnection();
 app.listen(PORT, () => {
     console.log(`Server is running on PORT: ${PORT}`);
 });

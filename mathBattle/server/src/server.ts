@@ -5,6 +5,7 @@ import {config} from "dotenv";
 import { openConnection } from "./database/open-connection";
 import morgan from 'morgan';
 import helmet from 'helmet';
+import { UserRouter } from "./user/UserRouter";
 
 config();
 
@@ -18,7 +19,9 @@ app.use(express.urlencoded({ extended: true }));
 
 
 const PORT: string | number = process.env.PORT || 3000;
+
 // openConnection();
+app.use("/api/users", UserRouter);
 app.listen(PORT, () => {
     console.log(`Server is running on PORT: ${PORT}`);
 });

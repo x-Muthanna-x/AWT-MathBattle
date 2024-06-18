@@ -18,9 +18,10 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 
 
-const PORT: string | number = process.env.PORT || 3000;
-
-// openConnection();
+const PORT: string | number = process.env.PORT || 1000;
+const uri: string = process.env.DB_PATH || "";
+console.log(uri);
+openConnection(uri);
 app.use("/api/users", UserRouter);
 app.listen(PORT, () => {
     console.log(`Server is running on PORT: ${PORT}`);

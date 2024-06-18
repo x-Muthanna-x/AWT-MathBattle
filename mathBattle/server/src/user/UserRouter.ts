@@ -1,9 +1,11 @@
 import { Router } from "express";
-import { loginUser } from "./user-login";
+import { tryLoginUser } from "./user-login";
 import { registerUser } from "./user-register";
+import { Request, Response } from "express";
+import { tryProcess } from "../helper/tryProcess";
 
 
 export const UserRouter = Router();
 
-UserRouter.post("/login", loginUser);
-UserRouter.post("/register", registerUser);
+UserRouter.post("/login", (req: Request, res: Response) => tryProcess(req, res, tryLoginUser));
+UserRouter.post("/register", (req: Request, res: Response) => tryProcess(req, res, registerUser));

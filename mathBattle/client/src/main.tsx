@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { theme } from "./main-theme.ts";
 import { LevelMapPage } from "./LevelMap/LevelMapPage.tsx";
 import { NotFound } from "./NotFound.tsx";
-import { LevelSucceed } from "./LevelMap/LevelSucceed.1.tsx";
+import { LevelSucceed } from "./LevelMap/LevelSucceed.tsx";
 
 const router = createBrowserRouter([
     {

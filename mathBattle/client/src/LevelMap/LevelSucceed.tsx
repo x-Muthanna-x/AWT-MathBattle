@@ -18,7 +18,7 @@ export function LevelSucceed() {
                         </Typography>
                     </Grid>
 
-                    <Grid container spacing={2}>
+                    <Grid item xs={12}>
                         <Button variant="outlined">Main Menu</Button>
                         <Button variant="contained">Next Level</Button>
                     </Grid>

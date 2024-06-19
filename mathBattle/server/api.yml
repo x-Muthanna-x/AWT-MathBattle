@@ -1,0 +1,121 @@
+openapi: 3.0.3
+info:
+  title: Swagger Math Battle
+  description: |-
+    Math Batlle for AWT
+  version: 1.0.0
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: https://petstore3.swagger.io/api/v3
+paths:
+  /users/login:
+    post:
+      tags:
+        - users
+      summary: Login the user
+      operationId: loginUser
+      requestBody:
+        description: Pass a users credentials to get a JWT token
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'  
+        '400':
+          description: Wrong password
+        '404':
+          description: User not found
+  /users/register:
+    post:
+      tags:
+        - users
+      summary: Register the user
+      operationId: registerUser
+      requestBody:
+        description: Sign up a user
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'  
+        '400':
+          description: Username already in use
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        username:
+          type: string
+          example: theUser
+        password:
+          type: string
+          example: '12345'
+    UserResponse:
+      type: object
+      properties:
+        sucess:
+          type: boolean
+          example: true
+        message:
+          type: string 
+          example: 'Login success'
+        token:
+          type: string 
+          example: 'SomeToken'
+    SuccessResponse:
+      type: object
+      properties:
+        sucess:
+          type: boolean
+          example: true
+        message:
+          type: string 
+          example: 'User created successfully'
+  requestBodies:
+    Pet:
+      description: Pet object that needs to be added to the store
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/User'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/User'
+    UserArray:
+      description: List of user object
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/User'
+  securitySchemes:
+    petstore_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://petstore3.swagger.io/oauth/authorize
+          scopes:
+            write:pets: modify pets in your account
+            read:pets: read your pets
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header
